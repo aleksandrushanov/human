@@ -5,10 +5,26 @@ public class human {
     public String post;
 
     public human(String name,String city, int yearOfBirth, String post) {
-        this.name = name;
-        this.city = city;
-        this.yearOfBirth = yearOfBirth;
-        this.post = post;
+        if (name == null || name.isEmpty()) {
+            this.name = "Информация не укзана";
+        }else{
+            this.name = name;
+        }
+        if (city == null || city.isEmpty()) {
+            this.city = "Информация не укзана";
+        }else {
+            this.city = city;
+        }
+        if (yearOfBirth > 0) {
+            this.yearOfBirth = yearOfBirth;
+        } else {
+            this.yearOfBirth = Math.abs(yearOfBirth);
+        }
+        if (post == null || post.isEmpty()) {
+            this.post = "Информация не укзана";
+        } else {
+            this.post = post;
+        }
     }
 
     @Override
@@ -17,7 +33,7 @@ public class human {
                 "Привет! Меня зовут " + name +
                 ". Я из города " + city +
                 ". Я родился в " + yearOfBirth +
-                "году. Я работаю на должности " + post +
+                " году. Я работаю на должности " + post +
                 ". Будем знакомы!";
     }
 }
